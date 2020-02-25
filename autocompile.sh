@@ -1,17 +1,5 @@
 # nginx-autocompile
- 
-#How to build your custom Nginx
-#==============================
-
-#Works fine for me with Ubuntu 16.04. 
-
-#Automated Install with pagespeed module (Google)
-#------------------------------------------------
-#If you interested, read the original
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
-#
-#-------------8<----------------------
-# Before we start, lets clean old stuff
 cd
 rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
