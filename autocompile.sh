@@ -29,18 +29,15 @@ rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
 # Brotli
 cd $MYHOME
-git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli
-cd ngx_brotli
-git submodule update --init
+git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
 
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip
-unzip master.zip
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
 
 # Pagespeed module + Nginx + modules
-cd $MYHOME
+#cd $MYHOME
 #installting some requirements (need to add some laters if needed)
 
 update-ccache-symlinks
@@ -92,7 +89,13 @@ bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
 --with-pcre \
 --with-pcre-jit \
 --with-zlib=../zlib-1.2.11 \
+--http-proxy-temp-path=/var/cache/nginx/tmp/http \
+--http-scgi-temp-path=/var/cache/nginx/tmp/scgi \
+--http-uwsgi-temp-path=/var/cache/nginx/tmp/scgi \
 --with-libatomic \
+ --conf-path=/etc/nginx
+--error-log-path=/var/log/nginx \
+--http-log-path=/var/log/nginx \
 --with-debug'
 
 #to be continued
