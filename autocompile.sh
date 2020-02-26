@@ -1,23 +1,47 @@
-# nginx-autocompile
+#!/bin/bash
+# nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
-cd
+MYHOME=$HOME
+
+
+
+
+################################################################################################
+################################################################################################
+#  ______   ________   ______   _______         __    __  ________  _______   ________ 
+# /      \ /        | /      \ /       \       /  |  /  |/        |/       \ /        |
+#/$$$$$$  |$$$$$$$$/ /$$$$$$  |$$$$$$$  |      $$ |  $$ |$$$$$$$$/ $$$$$$$  |$$$$$$$$/ 
+#$$ \__$$/    $$ |   $$ |  $$ |$$ |__$$ |      $$ |__$$ |$$ |__    $$ |__$$ |$$ |__    
+#$$      \    $$ |   $$ |  $$ |$$    $$/       $$    $$ |$$    |   $$    $$< $$    |   
+# $$$$$$  |   $$ |   $$ |  $$ |$$$$$$$/        $$$$$$$$ |$$$$$/    $$$$$$$  |$$$$$/    
+#/  \__$$ |   $$ |   $$ \__$$ |$$ |            $$ |  $$ |$$ |_____ $$ |  $$ |$$ |_____ 
+#$$    $$/    $$ |   $$    $$/ $$ |            $$ |  $$ |$$       |$$ |  $$ |$$       |
+# $$$$$$/     $$/     $$$$$$/  $$/             $$/   $$/ $$$$$$$$/ $$/   $$/ $$$$$$$$/ 
+#                                                                                    
+#      Special thanks to Telegram/Github User:sausix for some helping!                                                                         
+################################################################################################
+################################################################################################
+
+
+cd $MYHOME
 rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
 # Brotli
-cd
-git clone https://github.com/google/ngx_brotli.git
+cd $MYHOME
+git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli
 cd ngx_brotli
 git submodule update --init --recursive
 
 # Accept Language module
-cd
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip
+cd $MYHOME
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME\master.zip
 unzip master.zip
 
 # Pagespeed module + Nginx + modules
-cd
+cd $MYHOME
 #installting some requirements (need to add some laters if needed)
-apt install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev
+apt install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache
+update-ccache-symlinks
 bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
