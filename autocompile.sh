@@ -31,7 +31,8 @@ rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 cd $MYHOME
 git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli
 cd ngx_brotli
-git submodule update --init --recursive
+git submodule update --init
+
 
 # Accept Language module
 cd $MYHOME
@@ -81,8 +82,6 @@ bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
 --with-stream=dynamic \
 --with-stream_ssl_module \
 --with-stream_realip_module \
---with-stream_geoip_module \
---with-stream_geoip_module=dynamic \
 --with-stream_ssl_preread_module \
 --with-google_perftools_module \
 --with-cpp_test_module \
