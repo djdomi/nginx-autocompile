@@ -2,7 +2,8 @@
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
-
+apt update -q
+apt install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
 
 
 
@@ -40,7 +41,7 @@ unzip master.zip
 # Pagespeed module + Nginx + modules
 cd $MYHOME
 #installting some requirements (need to add some laters if needed)
-apt install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache
+
 update-ccache-symlinks
 bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
 --nginx-version latest \
