@@ -24,17 +24,17 @@ MYHOME=$HOME
 ################################################################################################
 
 
-cd $MYHOME
-rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
+#cd $MYHOME
+#rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
 # Brotli
-cd $MYHOME
-git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
+#cd $MYHOME
+#git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
 
 
 # Accept Language module
-cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
+#cd $MYHOME
+#wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
 
 # Pagespeed module + Nginx + modules
 #cd $MYHOME
