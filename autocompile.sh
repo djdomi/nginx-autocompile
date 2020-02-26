@@ -34,7 +34,7 @@ git submodule update --init --recursive
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME\master.zip
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip
 unzip master.zip
 
 # Pagespeed module + Nginx + modules
