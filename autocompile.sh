@@ -25,7 +25,7 @@ apt -qyyy install -y git wget libssl-dev libxlst-dev libgd-dev libgoogle-perftoo
 
 
 cd $MYHOME
-rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
+#rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
 # Brotli
 cd $MYHOME
