@@ -3,7 +3,7 @@
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
 apt update -q
-apt -qyyy install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
+apt -qyyy install -y git wget libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
 
 
 
@@ -24,20 +24,23 @@ apt -qyyy install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev li
 ################################################################################################
 
 
-#cd $MYHOME
-#rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
+cd $MYHOME
+rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
 
 # Brotli
-#cd $MYHOME
-#git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
+cd $MYHOME
+git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
 
 
 # Accept Language module
-#cd $MYHOME
-#wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
+cd $MYHOME
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
+
+cd $MYHOME
+curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -
 
 # Pagespeed module + Nginx + modules
-#cd $MYHOME
+cd $MYHOME
 #installting some requirements (need to add some laters if needed)
 
 update-ccache-symlinks
