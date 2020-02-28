@@ -2,8 +2,8 @@
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
-#apt update -q
-#apt install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
+apt update -q
+apt -qyyy install -y libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
 
 
 
