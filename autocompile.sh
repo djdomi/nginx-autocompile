@@ -34,7 +34,7 @@ git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip master.zip
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip
 
 cd $MYHOME
 curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -
