@@ -3,8 +3,8 @@
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
 apt update -q
-apt -qyyy install -y git wget libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
-
+sudo /usr/bin/apt -qyyy install -y git wget libssl-dev libxlst-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
+read -p "Press [Enter] key to start ..."
 
 
 ################################################################################################
