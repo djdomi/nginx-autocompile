@@ -3,7 +3,7 @@
 #Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
 read -p "Press [Enter] key to start ... Using $HOME"
-apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip
+apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 
 
 
@@ -35,10 +35,10 @@ cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && rm -r $MYHOME/nginx_accept_language_module-master/ && unzip -o $MYHOME/master.zip
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && rm -r $MYHOME/nginx_accept_language_module-master/ && unzip -o $MYHOME/master.zip && Echo Accept-Language Module Finished || echo Error on Accept-Module; exit 1
 
 cd $MYHOME
-curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -
+curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && Echo ZLIB Module Finished || echo Error on ZLIB-Module; exit 1
 
 # Pagespeed module + Nginx + modules
 cd $MYHOME
