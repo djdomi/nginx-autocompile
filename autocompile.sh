@@ -25,11 +25,10 @@ apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget lib
 
 
 cd $MYHOME
-#rm -rf nginx-* ngx_brotli* master.* ngx_* nginx_a* release-* v1.1*
+rm -rf $MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
 
 # Brotli
-cd $MYHOME
-git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd ngx_brotli && git submodule update --init
+cd $MYHOME && git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd $MYHOME\ngx_brotli && git submodule update --init
 
 
 # Accept Language module
