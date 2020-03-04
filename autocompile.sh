@@ -43,7 +43,7 @@ cd $MYHOME
 #installting some requirements (need to add some laters if needed)
 
 update-ccache-symlinks
-bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
+bash <(curl -f -L -sS https://ngxpagespeed.com/install -y) \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
