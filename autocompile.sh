@@ -28,7 +28,9 @@ cd $MYHOME
 rm -rf $MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
 
 # Brotli
-cd $MYHOME && git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && cd $MYHOME\ngx_brotli && git submodule update --init
+cd $MYHOME 
+git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && echo "Clone Successfully || exit 1"
+cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully || exit 1"
 
 
 # Accept Language module
@@ -43,7 +45,7 @@ cd $MYHOME
 #installting some requirements (need to add some laters if needed)
 
 update-ccache-symlinks
-bash <(curl -f -L -sS https://ngxpagespeed.com/install -y) \
+bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
