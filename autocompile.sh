@@ -97,7 +97,6 @@ bash <(curl -f -L -sS https://ngxpagespeed.com/install) \
 --with-libatomic \
  --conf-path=/etc/nginx
 --error-log-path=/var/log/nginx \
---http-log-path=/var/log/nginx \
---with-debug'
+--http-log-path=/var/log/nginx '
 
 #to be continued
