@@ -1,11 +1,37 @@
 #!/bin/bash
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
-#Source: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
+# Source Infos: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 MYHOME=$HOME
-read -p "Press [Enter] key to start ... Using $HOME"
+#read -p "Press [Enter] key to start ... Using $HOME"
+
+
 apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
+echo Checking for Files
 
-
+if [ ! -f /usr/bin/curl ]; then
+  echo curl is not present
+ exit 1
+elif [ ! -f /usr/bin/git ]; then
+   echo git is not present
+ exit 1
+ elif [ ! -f /usr/bin/wget ]; then
+   echo wget is not present
+ exit 1
+ elif [ ! -f /usr/bin/ccache ]; then
+   echo ccache is not present
+ exit 1
+  elif [ ! -f /usr/bin/zip ]; then
+   echo zip is not present
+ exit 1
+  elif [ ! -f /usr/bin/unzip ]; then
+   echo unzip is not present
+ exit 1
+   elif [ ! -f /usr/bin/gcc ]; then
+   echo build-essential is not present
+ exit 1
+  else
+    echo "all fine, continuing"
+fi
 
 ################################################################################################
 ################################################################################################
@@ -23,9 +49,36 @@ apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget lib
 ################################################################################################
 ################################################################################################
 
-
+#$MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
 cd $MYHOME
-rm -rf $MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
+if [ -z $MYHOME ]; then
+    echo VARIABLE MYHOME is not set, exiting
+    exit1
+fi
+if [ -d "$MYHOME/nginx-*" ]; then
+     rm -rf "$MYHOME/nginx-*"
+     
+elif [ -d "$MYHOME/ngx_brotli*" ]; then
+     rm -rf "$MYHOME/ngx_brotli*"
+     
+elif [ -d "$MYHOME/master.*" ]; then
+     rm -rf "$MYHOME/master.*"
+     
+elif [ -d " $MYHOME/ngx_*" ]; then
+     rm -rf  "$MYHOME/ngx_*" 
+     
+elif [ -d "$MYHOME/nginx_a*" ];  then
+     rm -rf "$MYHOME/nginx_a*" 
+     
+elif [ -d "$MYHOME/release-*" ];  then
+      rm -rf $MYHOME/release-*
+      
+elif [ -d "$MYHOME/v1.1*" ];      then
+      rm -rf "$MYHOME/v1.1*"      
+
+else
+     echo "Nothing to delete... FINE"
+fi
 
 # Brotli
 cd $MYHOME 
@@ -33,9 +86,10 @@ git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && echo "C
 cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully || exit 1"
 
 
+
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && rm -r $MYHOME/nginx_accept_language_module-master/ && unzip -o $MYHOME/master.zip && Echo Accept-Language Module Finished || echo Error on Accept-Module; exit 1
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && Echo Accept-Language Module Finished || echo Error on Accept-Module; exit 1
 
 cd $MYHOME
 curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && Echo ZLIB Module Finished || echo Error on ZLIB-Module; exit 1
