@@ -98,10 +98,10 @@ cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished || echo Error on Accept-Module; exit 1
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished 
 
 cd $MYHOME
-curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished || echo Error on ZLIB-Module; exit 1
+curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished 
 
 # Pagespeed module + Nginx + modules
 cd $MYHOME
