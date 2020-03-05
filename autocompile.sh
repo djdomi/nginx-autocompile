@@ -76,29 +76,29 @@ fi
 
 cd $MYHOME
 #Checking for some Files if exist, delete them
-if [ -z $MYHOME ]; then
+if [ -z "$MYHOME" ]; then
     echo " ${cred} VARIABLE MYHOME is not set, exiting "${cres}"
     exit1
 fi
-if [ -d "$MYHOME/nginx-*" ]; then
+if [ -d "$MYHOME/nginx-*" ]; 		then
      rm -rf "$MYHOME/nginx-*"
      
-elif [ -d "$MYHOME/ngx_brotli*" ]; then
+elif [ -d "$MYHOME/ngx_brotli*" ]; 	then
      rm -rf "$MYHOME/ngx_brotli*"
      
-elif [ -d "$MYHOME/master.*" ]; then
+elif [ -d "$MYHOME/master.*" ]; 	then
      rm -rf "$MYHOME/master.*"
      
-elif [ -d " $MYHOME/ngx_*" ]; then
+elif [ -d " $MYHOME/ngx_*" ]; 		then
      rm -rf  "$MYHOME/ngx_*" 
      
-elif [ -d "$MYHOME/nginx_a*" ];  then
+elif [ -d "$MYHOME/nginx_a*" ];  	then
      rm -rf "$MYHOME/nginx_a*" 
      
-elif [ -d "$MYHOME/release-*" ];  then
+elif [ -d "$MYHOME/release-*" ];  	then
       rm -rf "$MYHOME/release-*"
       
-elif [ -d "$MYHOME/v1.1*" ];      then
+elif [ -d "$MYHOME/v1.1*" ];      	then
       rm -rf "$MYHOME/v1.1*"      
 
 else
