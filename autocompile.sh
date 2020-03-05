@@ -39,9 +39,9 @@ cres=$(tput sgr0) # reset the foreground colour
 clear
 #installting some requirements (need to add some laters if needed)
 if [ ! -f "/usr/bin/apt" ]; then
-		echo we need to have apt installed.
-		echo That means, either apt-get install apt or this is not ubuntu
-		echo Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}
+		echo "we need to have apt installed."
+		echo "That means, either apt-get install apt or this is not ubuntu"
+		echo "Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}"
 		exit 1
 	else
 		apt -qqqq update && sudo /usr/bin/apt -qqyy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
@@ -51,23 +51,23 @@ fi
 if [ ! -f "/usr/bin/curl" ]; then
 	echo "${cred} CURL ${cres} is not present"
 		"exit 1"
-elif [ ! -f /usr/bin/git ]; then
-	echo ${cred} GIT ${cres} is not present
+elif [ ! -f "/usr/bin/git" ]; then
+	echo "${cred} GIT ${cres} is not present"
 		exit 1
- elif [ ! -f /usr/bin/wget ]; then
-	echo ${cred} WGET ${cres} is not present
+ elif [ ! -f "/usr/bin/wget" ]; then
+	echo "${cred} WGET ${cres} is not present"
 		exit 1
- elif [ ! -f /usr/bin/ccache ]; then
-	echo ${cred} CCACHE ${cres} is not present
+ elif [ ! -f "/usr/bin/ccache" ]; then
+	echo "${cred} CCACHE ${cres} is not present"
 		exit 1
-  elif [ ! -f /usr/bin/zip ]; then
-	echo ${cred} ZIP ${cres} is not present
+  elif [ ! -f "/usr/bin/zip" ]; then
+	echo "${cred} ZIP ${cres} is not present"
 		exit 1
-  elif [ ! -f /usr/bin/unzip ]; then
-	echo ${cred} UNZIP ${cres} is not present
+  elif [ ! -f "/usr/bin/unzip" ]; then
+	echo "${cred} UNZIP ${cres} is not present"
 		exit 1
-  elif [ ! -f /usr/bin/gcc ]; then
-	echo ${cred} BUILD-ESSENTIAL ${cres} is not present
+  elif [ ! -f "/usr/bin/gcc" ]; then
+	echo "${cred} BUILD-ESSENTIAL ${cres} is not present"
 		exit 1
   else
 		clear
