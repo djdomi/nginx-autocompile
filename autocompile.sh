@@ -43,7 +43,7 @@ if [ ! -f "/usr/bin/apt" ]; then
 		echo "That means, either apt-get install apt or this is not ubuntu"
 		exit 1
 	else
-		apt -q update && sudo /usr/bin/apt -yy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
+		apt -q update -q && sudo /usr/bin/apt -yy install libbrotli-dev libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 fi
 
 # Verify, that the install was successfully...
