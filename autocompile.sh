@@ -15,9 +15,8 @@ MYHOME=$HOME
 #  echo could not dertimine $MYHOME
 #fi
 
-#installting some requirements (need to add some laters if needed)
-apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
-echo Checking for Files
+
+
 
 
 
@@ -36,11 +35,23 @@ echo Checking for Files
 #      Special thanks to Telegram/Github User:sausix for some helping!                                                                         
 ################################################################################################
 ################################################################################################
+cred=$(tput setaf 1) #set red
+cyel=$(tput setaf 3) #set yellow
+cres=$(tput sgr0) # reset the foreground colour
 
-
-if [ ! -f /usr/bin/curl ]; then
-	echo curl is not present
+#installting some requirements (need to add some laters if needed)
+if [ ! -f "/usr/bin/apt" ]; then
+		echo we need to have apt installed.
+		echo That means, either apt-get install apt or this is not ubuntu
+		Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}
 		exit 1
+	else
+		apt -qqqq update && sudo /usr/bin/apt -qqyy install ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
+fi
+
+if [ ! -f "/usr/bin/curl" ]; then
+	echo "${cred} CURL is not present"
+		"exit 1"
 elif [ ! -f /usr/bin/git ]; then
 	echo git is not present
 		exit 1
@@ -103,12 +114,10 @@ cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully
 
 
 # Accept Language module
-cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished  || exit 1
+cd $MYHOME && wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished  || exit 1
 
 #ZLib Module
-cd $MYHOME
-curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished 
+cd $MYHOME && curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished || "echo Error on Zlib Module && exit 1"
 
 # Compiling: Pagespeed module + Nginx + modules
 cd $MYHOME
