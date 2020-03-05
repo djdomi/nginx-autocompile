@@ -17,9 +17,6 @@ MYHOME=$HOME
 
 
 
-
-
-
 ################################################################################################
 ################################################################################################
 #  ______   ________   ______   _______         __    __  ________  _______   ________ 
@@ -37,6 +34,7 @@ MYHOME=$HOME
 ################################################################################################
 cred=$(tput setaf 1) #set red
 cyel=$(tput setaf 3) #set yellow
+cgre=$(tput setaf 2) #set green
 cres=$(tput sgr0) # reset the foreground colour
 
 #installting some requirements (need to add some laters if needed)
@@ -53,31 +51,30 @@ if [ ! -f "/usr/bin/curl" ]; then
 	echo "${cred} CURL is not present"
 		"exit 1"
 elif [ ! -f /usr/bin/git ]; then
-	echo git is not present
+	echo ${cred} git is not present
 		exit 1
  elif [ ! -f /usr/bin/wget ]; then
-	echo wget is not present
+	echo ${cred} wget is not present
 		exit 1
  elif [ ! -f /usr/bin/ccache ]; then
-	echo ccache is not present
+	echo ${cred} ccache is not present
 		exit 1
   elif [ ! -f /usr/bin/zip ]; then
-	echo zip is not present
+	echo ${cred} zip is not present
 		exit 1
   elif [ ! -f /usr/bin/unzip ]; then
-	echo unzip is not present
+	echo ${cred} unzip is not present
 		exit 1
   elif [ ! -f /usr/bin/gcc ]; then
-	echo build-essential is not present
+	echo ${cred} build-essential is not present
 		exit 1
   else
 		clear
     echo "all fine, we are happy and continuing"
 fi
 
-
-#$MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
 cd $MYHOME
+#Checking for some Files if exist, delete them
 if [ -z $MYHOME ]; then
     echo VARIABLE MYHOME is not set, exiting
     exit1
@@ -98,13 +95,13 @@ elif [ -d "$MYHOME/nginx_a*" ];  then
      rm -rf "$MYHOME/nginx_a*" 
      
 elif [ -d "$MYHOME/release-*" ];  then
-      rm -rf $MYHOME/release-*
+      rm -rf "$MYHOME/release-*"
       
 elif [ -d "$MYHOME/v1.1*" ];      then
       rm -rf "$MYHOME/v1.1*"      
 
 else
-     echo "Nothing to delete... FINE"
+     echo "Nothing to delete... very good, CONTINUING"
 fi
 
 # Brotli
