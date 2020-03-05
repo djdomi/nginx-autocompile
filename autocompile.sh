@@ -44,7 +44,7 @@ if [ ! -f "/usr/bin/apt" ]; then
 		Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}
 		exit 1
 	else
-		apt -qqqq update && sudo /usr/bin/apt -qqyy install ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
+		apt -qqqq update && sudo /usr/bin/apt -qqyy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 fi
 
 # Verify, that the install was successfully...
@@ -122,7 +122,8 @@ cd $MYHOME
 
 
 update-ccache-symlinks
-bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y \
+echo be patient from now...
+time bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a '-s' \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
