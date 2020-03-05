@@ -15,6 +15,7 @@ MYHOME=$HOME
 #  echo could not dertimine $MYHOME
 #fi
 
+#installting some requirements (need to add some laters if needed)
 apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 echo Checking for Files
 
@@ -109,9 +110,9 @@ wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O 
 cd $MYHOME
 curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished 
 
-# Pagespeed module + Nginx + modules
+# Compiling: Pagespeed module + Nginx + modules
 cd $MYHOME
-#installting some requirements (need to add some laters if needed)
+
 
 update-ccache-symlinks
 bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y \
