@@ -122,8 +122,9 @@ cd $MYHOME
 
 
 update-ccache-symlinks
+
 echo be patient from now...
-time bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a '-s' \
+time bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a  \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
