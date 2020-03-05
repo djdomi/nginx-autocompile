@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -euxo pipefail
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 # Source Infos: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 # you can overwrite the installpath via command line with S
