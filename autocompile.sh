@@ -36,12 +36,12 @@ cred=$(tput setaf 1) #set red
 cyel=$(tput setaf 3) #set yellow
 cgre=$(tput setaf 2) #set green
 cres=$(tput sgr0) # reset the foreground colour
-
+clear
 #installting some requirements (need to add some laters if needed)
 if [ ! -f "/usr/bin/apt" ]; then
 		echo we need to have apt installed.
 		echo That means, either apt-get install apt or this is not ubuntu
-		Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}
+		echo Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}
 		exit 1
 	else
 		apt -qqqq update && sudo /usr/bin/apt -qqyy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
