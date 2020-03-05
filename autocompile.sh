@@ -32,10 +32,19 @@ MYHOME=$HOME
 #      Special thanks to Telegram/Github User:sausix for some helping!                                                                         
 ################################################################################################
 ################################################################################################
+
+
 cred=$(tput setaf 1) #set red
 cyel=$(tput setaf 3) #set yellow
 cgre=$(tput setaf 2) #set green
 cres=$(tput sgr0) # reset the foreground colour
+
+if [[ $(id -u) -ne 0 ]];	then 
+		echo "${cyel} Please run as {cres} ${cred} ROOT ${cres}" 
+		exit 1
+	else
+		echo "Script running as root... OK"
+fi
 clear
 #installting some requirements (need to add some laters if needed)
 if [ ! -f "/usr/bin/apt" ]; then
@@ -47,25 +56,25 @@ if [ ! -f "/usr/bin/apt" ]; then
 fi
 
 # Verify, that the install was successfully...
-if [ ! -f "/usr/bin/curl" ]; then
+if [ ! -f "/usr/bin/curl" ]; 		then
 	echo "${cred} CURL ${cres} is not present"
 		exit 1
-elif [ ! -f "/usr/bin/git" ]; then
+elif [ ! -f "/usr/bin/git" ]; 		then
 	echo "${cred} GIT ${cres} is not present"
 		exit 1
- elif [ ! -f "/usr/bin/wget" ]; then
+ elif [ ! -f "/usr/bin/wget" ]; 	then
 	echo "${cred} WGET ${cres} is not present"
 		exit 1
- elif [ ! -f "/usr/bin/ccache" ]; then
+ elif [ ! -f "/usr/bin/ccache" ]; 	then
 	echo "${cred} CCACHE ${cres} is not present"
 		exit 1
-  elif [ ! -f "/usr/bin/zip" ]; then
+  elif [ ! -f "/usr/bin/zip" ]; 	then
 	echo "${cred} ZIP ${cres} is not present"
 		exit 1
-  elif [ ! -f "/usr/bin/unzip" ]; then
+  elif [ ! -f "/usr/bin/unzip" ]; 	then
 	echo "${cred} UNZIP ${cres} is not present"
 		exit 1
-  elif [ ! -f "/usr/bin/gcc" ]; then
+  elif [ ! -f "/usr/bin/gcc" ]; 	then
 	echo "${cred} BUILD-ESSENTIAL ${cres} is not present"
 		exit 1
   else
@@ -101,23 +110,26 @@ elif [ -d "$MYHOME/v1.1*" ];      	then
       rm -rf "$MYHOME/v1.1*"      
 
 else
-     echo "Nothing to delete... very good, CONTINUING"
+     echo "Nothing to delete... very good, ${cgre} CONTINUING ${cres}"
 fi
 
 # Brotli
 cd $MYHOME && git clone https://github.com/google/ngx_brotli.git && echo "Cloning NGX Brotli Successfully || exit 1"
 cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully || exit 1"
-
+echo
+echo
 
 
 # Accept Language module
-cd $MYHOME && wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished  || exit 1
-
+cd $MYHOME && wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -q -o $MYHOME/master.zip && echo Accept-Language Module Finished  || exit 1
+echo
 #ZLib Module
-cd $MYHOME && curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished || "echo Error on Zlib Module && exit 1"
+cd $MYHOME && curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xfz -  && echo ZLIB Module Finished || "echo Error on Zlib Module && exit 1"
+echo
 
 # Compiling: Pagespeed module + Nginx + modules
 cd $MYHOME
+echo
 
 
 update-ccache-symlinks
