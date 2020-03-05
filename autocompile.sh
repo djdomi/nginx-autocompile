@@ -47,36 +47,37 @@ if [ ! -f "/usr/bin/apt" ]; then
 		apt -qqqq update && sudo /usr/bin/apt -qqyy install ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 fi
 
+# Verify, that the install was successfully...
 if [ ! -f "/usr/bin/curl" ]; then
-	echo "${cred} CURL is not present"
+	echo "${cred} CURL ${cres} is not present"
 		"exit 1"
 elif [ ! -f /usr/bin/git ]; then
-	echo ${cred} git is not present
+	echo ${cred} GIT ${cres} is not present
 		exit 1
  elif [ ! -f /usr/bin/wget ]; then
-	echo ${cred} wget is not present
+	echo ${cred} WGET ${cres} is not present
 		exit 1
  elif [ ! -f /usr/bin/ccache ]; then
-	echo ${cred} ccache is not present
+	echo ${cred} CCACHE ${cres} is not present
 		exit 1
   elif [ ! -f /usr/bin/zip ]; then
-	echo ${cred} zip is not present
+	echo ${cred} ZIP ${cres} is not present
 		exit 1
   elif [ ! -f /usr/bin/unzip ]; then
-	echo ${cred} unzip is not present
+	echo ${cred} UNZIP ${cres} is not present
 		exit 1
   elif [ ! -f /usr/bin/gcc ]; then
-	echo ${cred} build-essential is not present
+	echo ${cred} BUILD-ESSENTIAL ${cres} is not present
 		exit 1
   else
 		clear
-    echo "all fine, we are happy and continuing"
+    echo "${cgre} all fine, we are happy and continuing ${cres}"
 fi
 
 cd $MYHOME
 #Checking for some Files if exist, delete them
 if [ -z $MYHOME ]; then
-    echo VARIABLE MYHOME is not set, exiting
+    echo " ${cred} VARIABLE MYHOME is not set, exiting "${cres}"
     exit1
 fi
 if [ -d "$MYHOME/nginx-*" ]; then
