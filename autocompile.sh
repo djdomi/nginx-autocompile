@@ -18,30 +18,7 @@ MYHOME=$HOME
 apt -qqqq update && sudo /usr/bin/apt -qqyy install build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 echo Checking for Files
 
-if [ ! -f /usr/bin/curl ]; then
-  echo curl is not present
- exit 1
-elif [ ! -f /usr/bin/git ]; then
-   echo git is not present
- exit 1
- elif [ ! -f /usr/bin/wget ]; then
-   echo wget is not present
- exit 1
- elif [ ! -f /usr/bin/ccache ]; then
-   echo ccache is not present
- exit 1
-  elif [ ! -f /usr/bin/zip ]; then
-   echo zip is not present
- exit 1
-  elif [ ! -f /usr/bin/unzip ]; then
-   echo unzip is not present
- exit 1
-   elif [ ! -f /usr/bin/gcc ]; then
-   echo build-essential is not present
- exit 1
-  else
-    echo "all fine, continuing"
-fi
+
 
 ################################################################################################
 ################################################################################################
@@ -58,6 +35,34 @@ fi
 #      Special thanks to Telegram/Github User:sausix for some helping!                                                                         
 ################################################################################################
 ################################################################################################
+
+
+if [ ! -f /usr/bin/curl ]; then
+	echo curl is not present
+		exit 1
+elif [ ! -f /usr/bin/git ]; then
+	echo git is not present
+		exit 1
+ elif [ ! -f /usr/bin/wget ]; then
+	echo wget is not present
+		exit 1
+ elif [ ! -f /usr/bin/ccache ]; then
+	echo ccache is not present
+		exit 1
+  elif [ ! -f /usr/bin/zip ]; then
+	echo zip is not present
+		exit 1
+  elif [ ! -f /usr/bin/unzip ]; then
+	echo unzip is not present
+		exit 1
+  elif [ ! -f /usr/bin/gcc ]; then
+	echo build-essential is not present
+		exit 1
+  else
+		clear
+    echo "all fine, we are happy and continuing"
+fi
+
 
 #$MYHOME/nginx-* $MYHOME/ngx_brotli* $MYHOME/master.* $MYHOME/ngx_* $MYHOME/nginx_a* $MYHOME/release-* $MYHOME/v1.1*
 cd $MYHOME
