@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 # Source Infos: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 # you can overwrite the installpath via command line with S
@@ -90,16 +91,16 @@ else
 fi
 
 # Brotli
-cd $MYHOME 
-git clone https://github.com/google/ngx_brotli.git $MYHOME\ngx_brotli && echo "Clone Successfully || exit 1"
+cd $MYHOME && git clone https://github.com/google/ngx_brotli.git && echo "Cloning NGX Brotli Successfully || exit 1"
 cd $MYHOME\ngx_brotli && git submodule update --init && echo "Clone Successfully || exit 1"
 
 
 
 # Accept Language module
 cd $MYHOME
-wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished 
+wget https://github.com/giom/nginx_accept_language_module/archive/master.zip -O $MYHOME/master.zip && unzip -o $MYHOME/master.zip && echo Accept-Language Module Finished  || exit 1
 
+#ZLib Module
 cd $MYHOME
 curl -s https://www.zlib.net/zlib-1.2.11.tar.gz | tar xvfz -  && echo ZLIB Module Finished 
 
