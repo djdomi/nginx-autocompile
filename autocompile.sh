@@ -122,7 +122,7 @@ cd $MYHOME
 
 update-ccache-symlinks
 
-bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a  \
+bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y  \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
@@ -176,6 +176,6 @@ bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a  \
 --with-libatomic \
  --conf-path=/etc/nginx
 --error-log-path=/var/log/nginx \
---http-log-path=/var/log/nginx ' /
+--http-log-path=/var/log/nginx ' 
 
 #to be continued
