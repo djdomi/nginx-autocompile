@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+#set -euxo pipefail
 # nginx-autocompile (https://github.com/djdomi/nginx-autocompile)
 # Source Infos: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 # you can overwrite the installpath via command line with S
@@ -44,7 +44,7 @@ if [ ! -f "/usr/bin/apt" ]; then
 		echo "Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}"
 		exit 1
 	else
-		apt -qqqq update && sudo /usr/bin/apt -qqyy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
+		apt -q update && sudo /usr/bin/apt -yy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
 fi
 
 # Verify, that the install was successfully...
@@ -123,8 +123,7 @@ cd $MYHOME
 
 update-ccache-symlinks
 
-echo be patient from now...
-time bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a  \
+bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y -a  \
 --nginx-version latest \
 --ngx-pagespeed-version latest-beta \
 --additional-nginx-configure-arguments ' --with-select_module \
