@@ -76,7 +76,7 @@ fi
 cd $MYHOME
 #Checking for some Files if exist, delete them
 if [ -z "$MYHOME" ]; then
-    echo " ${cred} VARIABLE MYHOME is not set, exiting "${cres}"
+    echo " ${cred} VARIABLE MYHOME is not set, exiting ${cres}"
     exit1
 fi
 if [ -d "$MYHOME/nginx-*" ]; 		then
