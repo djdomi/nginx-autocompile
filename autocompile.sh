@@ -4,7 +4,7 @@
 # Source Infos: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source
 # you can overwrite the installpath via command line with S
 #read -p "Press [Enter] key to start ... Using $HOME"
-
+LSB="lsb_release -s -i`"
 
 #if [ -z $MYHOME ]; then
 MYHOME=$HOME
@@ -41,7 +41,7 @@ clear
 if [ ! -f "/usr/bin/apt" ]; then
 		echo "we need to have apt installed."
 		echo "That means, either apt-get install apt or this is not ubuntu"
-		#echo "Your Distrubtion that LSB tells is: ${cyel} `lsb_release -s -i` ${cres}"
+		#echo "Your Distrubtion that LSB tells is: ${cyel} $LSB ${cres}"
 		exit 1
 	else
 		apt -q update && sudo /usr/bin/apt -yy install libperl-dev ncurses-bin build-essential git wget libssl-dev libxslt-dev libgd-dev libgoogle-perftools-dev libatomic-ops-dev build-essential ccache zip unzip && clear && echo  apt requirements installed || echo error on apt
