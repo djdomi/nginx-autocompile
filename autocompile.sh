@@ -40,7 +40,7 @@ cgre=$(tput setaf 2) #set green
 cres=$(tput sgr0) # reset the foreground colour
 
 if [[ $(id -u) -ne 0 ]];	then 
-		echo "${cyel} Please run as {cres} ${cred} ROOT ${cres}" 
+		echo "${cyel} Please run as ${cres} ${cred} ROOT ${cres}" 
 		exit 1
 	else
 		echo "Script running as root... OK"
