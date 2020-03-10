@@ -186,7 +186,7 @@ bash <(curl -f -L -sS https://ngxpagespeed.com/install) -y  \
 --http-scgi-temp-path=/var/cache/nginx/tmp/scgi \
 --http-uwsgi-temp-path=/var/cache/nginx/tmp/scgi \
 --with-libatomic \
- --conf-path=/etc/nginx
+ --conf-path=/etc/nginx/ \
 --error-log-path=/var/log/nginx \
 --http-log-path=/var/log/nginx ' 
 
